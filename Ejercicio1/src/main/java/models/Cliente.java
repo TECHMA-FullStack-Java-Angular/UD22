@@ -20,17 +20,16 @@ public class Cliente {
 	private static final String DBNAME = "servicios";
 	private static final String TBNAME = "clientes";
 	
-	// Constructor
-	public Cliente() {
-		
-	}
-	
+	// Constructor	
 	public Cliente(String nombre, String apellido, String direccion, int dni, String fecha) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.direccion = direccion;
 		this.dni = dni;
 		this.fecha = fecha;
+		
+		createDatabase();
+		createTable();
 	}
 
 	// Methods

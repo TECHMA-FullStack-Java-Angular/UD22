@@ -2,7 +2,6 @@ package app1Main;
 
 import javax.swing.*;
 import controller.InsertController;
-import models.*;
 import views.InsertView;
 
 /**
@@ -24,9 +23,8 @@ public class App {
     	catch (IllegalAccessException e) {	
     	}
     	
-    	Cliente cliente = new Cliente();
     	InsertView insertView = new InsertView();
-    	InsertController controller = new InsertController(insertView, cliente);
+    	InsertController controller = new InsertController(insertView);
     	controller.initVista();
     }
 }

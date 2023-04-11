@@ -77,6 +77,10 @@ public class InsertView extends JFrame {
 		crear = new JButton("Crear");
 		crear.setBounds(219, 271, 89, 23);
 		contentPane.add(crear);
+		
+		JLabel lblNewLabel = new JLabel("NUEVO CLIENTE");
+		lblNewLabel.setBounds(124, 22, 138, 20);
+		contentPane.add(lblNewLabel);
 	}
 }
 

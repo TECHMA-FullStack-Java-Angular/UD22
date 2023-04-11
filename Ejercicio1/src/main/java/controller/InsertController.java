@@ -18,9 +18,8 @@ public class InsertController implements ActionListener {
 	private Cliente cliente;
 	private InsertView insert;
 	
-	public InsertController(InsertView insert, Cliente cliente) {
+	public InsertController(InsertView insert) {
 		this.insert = insert;
-		this.cliente = cliente;
 		this.insert.crear.addActionListener(this);
 	}
 
