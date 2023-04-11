@@ -1,4 +1,4 @@
-package ta22;
+package app1Main;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
