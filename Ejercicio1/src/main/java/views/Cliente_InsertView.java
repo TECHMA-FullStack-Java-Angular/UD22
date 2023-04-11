@@ -9,7 +9,7 @@ import javax.swing.*;
  * @author Javier
  *
  */
-public class InsertView extends JFrame {
+public class Cliente_InsertView extends JFrame {
 	
 	private JPanel contentPane;
 	public JTextField nombre;
@@ -19,7 +19,7 @@ public class InsertView extends JFrame {
 	public JTextField fecha;
 	public JButton crear;
 	
-	public InsertView() {
+	public Cliente_InsertView() {
 		initComponents();
 	}
 	
@@ -83,4 +83,3 @@ public class InsertView extends JFrame {
 		contentPane.add(lblNewLabel);
 	}
 }
-

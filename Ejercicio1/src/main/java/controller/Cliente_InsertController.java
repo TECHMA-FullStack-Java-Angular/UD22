@@ -13,12 +13,12 @@ import views.*;
  * @author Javier
  *
  */
-public class InsertController implements ActionListener {
+public class Cliente_InsertController implements ActionListener {
 	
 	private Cliente cliente;
-	private InsertView insert;
+	private Cliente_InsertView insert;
 	
-	public InsertController(InsertView insert) {
+	public Cliente_InsertController(Cliente_InsertView insert) {
 		this.insert = insert;
 		this.insert.crear.addActionListener(this);
 	}
