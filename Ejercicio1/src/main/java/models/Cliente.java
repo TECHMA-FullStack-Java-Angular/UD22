@@ -21,6 +21,10 @@ public class Cliente {
 	private static final String TBNAME = "clientes";
 	
 	// Constructor
+	public Cliente() {
+		
+	}
+	
 	public Cliente(String nombre, String apellido, String direccion, int dni, String fecha) {
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -43,9 +47,9 @@ public class Cliente {
 	public void createTable() {
 		CONNEXION.createTable(DBNAME, TBNAME, 
 				  "id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,"
-				+ "nombre VARCHAR(250) DEFAULT NOT NULL,"
-				+ "apellido VARCHAR(250) DEFAULT NOT NULL,"
-				+ "direccion VARCHAR(250) DEFAULT NOT NULL,"
+				+ "nombre VARCHAR(250) NOT NULL,"
+				+ "apellido VARCHAR(250) NOT NULL,"
+				+ "direccion VARCHAR(250) NOT NULL,"
 				+ "dni INT(11) DEFAULT NULL,"
 				+ "fecha DATE DEFAULT NULL");
 	}
