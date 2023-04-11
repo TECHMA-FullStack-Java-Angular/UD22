@@ -9,7 +9,9 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        
         Connector c = new Connector();
+        c.createDB("servicio");
+        c.createTable(null, null, null);
     }
 }
