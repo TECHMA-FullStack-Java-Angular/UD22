@@ -12,6 +12,5 @@ public class App
         
         Connector c = new Connector();
         c.createDB("servicio");
-        c.createTable(null, null, null);
     }
 }
