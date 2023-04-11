@@ -1,12 +1,7 @@
 package models;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
+import java.sql.*;
+import java.util.logging.*;
 import javax.swing.JOptionPane;
 
 
@@ -20,7 +15,7 @@ public class Connector {
 
 	private static Connection conexion = null;
 
-	//CREAR CONEXIÓN
+	// Create connection
 	public Connector() {
 		try {
 			Class.forName(DRIVER);
@@ -32,10 +27,7 @@ public class Connector {
 		}
 	}
 	
-	public static Connection getConexion() {
-		return conexion;
-	}
-	
+	// Close connection
 	public void closeConnection() {
 		try {
 			conexion.close();
@@ -45,8 +37,8 @@ public class Connector {
 		}
 	}
 
+	// Create database
 	public void createDB(String dbName) {
-
 		try {
 			String kuery = " CREATE DATABASE IF NOT EXISTS " + dbName + " ;";
 			Statement st = conexion.createStatement();
@@ -58,9 +50,7 @@ public class Connector {
 		}
 	}
 
-
-
-	// Método para crear una tabla en una base de datos
+	// Create table
 	public void createTable(String nombreBBDD, String nombreTabla, String tablaColum) {
 		try {
 			String queryDb = "USE " + nombreBBDD + ";";
@@ -78,7 +68,7 @@ public class Connector {
 		}
 	}
 
-	// Método para insertar datos en una tabla
+	// Insert table
 	public void insert(String dbName, String tableName, String columns, String values) {
 		try {
 			String queryDb = "USE " + dbName + ";";
@@ -96,7 +86,7 @@ public class Connector {
 		}
 	}
 
-	// METODO QUE OBTIENE VALORES MYSQL
+	// Select
 	public void select(String db, String table_name, String columnas) {
 		String[] columna = columnas.split(",");
 
@@ -125,7 +115,7 @@ public class Connector {
 		}
 	}
 
-	// METODO QUE ELIMINA VALORES DE NUESTRA BASE DE DATOS
+	// Delete
 	public void delete(String table_name_columna, String columna, String campo) {
 		try {
 			String query = "DELETE FROM " + table_name_columna + " WHERE " + columna + "= \"" + campo + "\"";
