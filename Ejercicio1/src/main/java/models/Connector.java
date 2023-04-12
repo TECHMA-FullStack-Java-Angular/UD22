@@ -59,8 +59,6 @@ public class Connector {
 			Statement st = conexion.createStatement();
 			st.executeUpdate(query);
 
-			
-
 			System.out.println("Se ha creado la tabla " + nombreTabla + " correctamente");
 		} catch (SQLException ex) {
 			Logger.getLogger(Connector.class.getName()).log(Level.SEVERE, null, ex);
@@ -76,13 +74,15 @@ public class Connector {
 			stdb.executeUpdate(queryDb);
 
 			String query = "INSERT INTO " + tableName + " (" + columns + ") VALUES (" + values + ");";
+			System.out.println(query);
 			Statement st = conexion.createStatement();
 			st.executeUpdate(query);
 
 			System.out.println("Datos insertados correctamente en la tabla " + tableName);
 		} catch (SQLException ex) {
 			Logger.getLogger(Connector.class.getName()).log(Level.SEVERE, null, ex);
-			JOptionPane.showMessageDialog(null, "Error insertando datos en la tabla " + tableName);
+			JOptionPane.showMessageDialog(null, 
+				"Error insertando datos en la tabla " + tableName + ": "+ex.getMessage());
 		}
 	}
 
