@@ -31,6 +31,6 @@ public class Attribute {
 
     @Override
     public String toString() {
-        return name + " " + type + type_cardinality + " " + others;
+        return name + " " + type + type_cardinality + " " + String.join(" ", others);
     }
 }

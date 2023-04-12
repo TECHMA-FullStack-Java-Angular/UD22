@@ -12,11 +12,9 @@ public class Connector {
 	private static final String URL = Credenciales.URL;
 	private static final String USER = Credenciales.USER;
 	private static final String PASSWORD = Credenciales.PASSWORD;
-
 	private static Connection conexion = null;
 
-	// Create connection
-	public Connector() {
+	public static void openConnection() {
 		try {
 			Class.forName(DRIVER);
 			conexion = DriverManager.getConnection(URL, USER, PASSWORD);
@@ -26,9 +24,8 @@ public class Connector {
 			System.out.println(ex);
 		}
 	}
-	
-	// Close connection
-	public void closeConnection() {
+
+	public static void closeConnection() {
 		try {
 			conexion.close();
 			JOptionPane.showMessageDialog(null, "Se ha finalizado la conexion con el servidor");
@@ -38,7 +35,7 @@ public class Connector {
 	}
 
 	// Create database
-	public void createDB(String dbName) {
+	public static void createDB(String dbName) {
 		try {
 			String kuery = " CREATE DATABASE IF NOT EXISTS " + dbName + " ;";
 			Statement st = conexion.createStatement();
@@ -51,15 +48,18 @@ public class Connector {
 	}
 
 	// Create table
-	public void createTable(String nombreBBDD, String nombreTabla, String tablaColum) {
+	public static void createTable(String nombreBBDD, String nombreTabla, String tablaColum) {
 		try {
 			String queryDb = "USE " + nombreBBDD + ";";
 			Statement stdb = conexion.createStatement();
 			stdb.executeUpdate(queryDb);
 
 			String query = "CREATE TABLE IF NOT EXISTS " + nombreTabla + " (" + tablaColum + ");";
+			System.out.println(query);
 			Statement st = conexion.createStatement();
 			st.executeUpdate(query);
+
+			
 
 			System.out.println("Se ha creado la tabla " + nombreTabla + " correctamente");
 		} catch (SQLException ex) {
@@ -68,8 +68,8 @@ public class Connector {
 		}
 	}
 
-	// Insert table
-	public void insert(String dbName, String tableName, String columns, String values) {
+	// Insert row to table table
+	public static void insert(String dbName, String tableName, String columns, String values) {
 		try {
 			String queryDb = "USE " + dbName + ";";
 			Statement stdb = conexion.createStatement();
@@ -86,8 +86,8 @@ public class Connector {
 		}
 	}
 
-	// Select
-	public ResultSet select(String db, String table_name) {
+	// Select all rows from table 
+	public static ResultSet select(String db, String table_name) {
 	    try {
 	        String queryDb = "USE " + db + ";";
 	        Statement stdb = conexion.createStatement();
@@ -104,8 +104,8 @@ public class Connector {
 	    }
 	}
 
-	// Delete
-	public void delete(String table_name_columna, String columna, String campo) {
+	// Delete 
+	public static void delete(String table_name_columna, String columna, String campo) {
 		try {
 			String query = "DELETE FROM " + table_name_columna + " WHERE " + columna + "= \"" + campo + "\"";
 			Statement st = conexion.createStatement();

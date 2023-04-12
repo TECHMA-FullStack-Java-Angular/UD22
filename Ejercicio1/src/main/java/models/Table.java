@@ -6,21 +6,25 @@ package models;
  * usable para otros ejercicios similares
  */
 public class Table {
-    private String name;
-    private Attribute[] attributes;
-    //TODO: foregin keys
+    public String name;
+    public Attribute[] attributes;
+    public final String DBNAME;
 
-    Table(String name, Attribute[] attributes) {
-        this.attributes = attributes;
+    Table(String name, Attribute[] attributes, String dbname) {
         this.name = name;
+        this.attributes = attributes;
+        this.DBNAME = dbname;
     }
     
-    public Attribute[] getAttributes() {
-        return attributes;
-    }
-
-    public void createTable() {
-        
-    }
-
+	/**
+	 * This method create table "clientes".
+	 */
+	public void createTable() {
+        String[] attributeStrings = new String[attributes.length];
+        for (int i = 0; i < attributes.length; i++) {
+            attributeStrings[i] = attributes[i].toString();
+        }
+		Connector.createTable(DBNAME, name, String.join(", ", attributeStrings));
+	}
+	
 }
