@@ -19,14 +19,14 @@ public class Cliente {
 	private String apellido;
 	private String direccion;
 	private int dni;
-	private String fecha;
+	private Date fecha;
 	
 	private static final Connector CONNEXION = new Connector();
 	private static final String DBNAME = "servicios";
 	private static final String TBNAME = "clientes";
 	
 	// Constructor	
-	public Cliente(int id, String nombre, String apellido, String direccion, int dni, String fecha) {
+	public Cliente(int id, String nombre, String apellido, String direccion, int dni, Date fecha) {
 		this.id = id;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -81,7 +81,7 @@ public class Cliente {
 	            	resultSet.getString("apellido"),
 	            	resultSet.getString("direccion"),
 	            	resultSet.getInt("dni"),
-	            	resultSet.getString("fecha"));
+	            	resultSet.getDate("fecha"));
 	            clientes.add(c);
 	        }
 	    } catch (SQLException ex) {

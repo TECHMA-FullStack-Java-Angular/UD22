@@ -4,6 +4,8 @@
 package controller;
 
 import java.awt.event.*;
+import java.sql.Date;
+
 import javax.swing.*;
 
 import models.*;
@@ -30,9 +32,9 @@ public class Cliente_InsertController implements ActionListener {
 		String apellidos = insert.apellidos.getText();
 		String direccion = insert.direccion.getText();
 		int dni = Integer.parseInt(insert.dni.getText());
-		String fecha = insert.fecha.getText();
+		Date fecha = insert.date;
 		
-		cliente = new Cliente(0, nombre, apellidos, direccion, dni, fecha);
+		cliente = new Cliente(0,nombre, apellidos, direccion, dni, fecha);
 		cliente.insert();
 		
 		JOptionPane.showMessageDialog(insert, "Cliente creado correctamente.");

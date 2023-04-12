@@ -3,6 +3,15 @@
  */
 package views;
 
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import javax.swing.*;
 
 /**
@@ -18,6 +27,7 @@ public class Cliente_InsertView extends JFrame {
 	public JTextField dni;
 	public JTextField fecha;
 	public JButton crear;
+	public Date date;
 	
 	public Cliente_InsertView() {
 		initComponents();
@@ -70,16 +80,42 @@ public class Cliente_InsertView extends JFrame {
 		contentPane.add(dni);
 		
 		fecha = new JTextField();
+		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		fecha.setText(LocalDate.now().format(dateFormat));
 		fecha.setColumns(10);
 		fecha.setBounds(107, 217, 201, 20);
 		contentPane.add(fecha);
 		
 		crear = new JButton("Crear");
-		crear.setBounds(219, 271, 89, 23);
+		crear.setBounds(219, 307, 89, 23);
 		contentPane.add(crear);
 		
 		JLabel lblNewLabel = new JLabel("NUEVO CLIENTE");
 		lblNewLabel.setBounds(124, 22, 138, 20);
 		contentPane.add(lblNewLabel);
+		
+		DateFormat fechaFormat = new SimpleDateFormat("yyyy-MM-dd");
+		// Obtener el texto del campo de fecha
+		String fechaTexto = fecha.getText();
+		try {
+		    // Analizar el texto de la fecha en un objeto Date
+		    SimpleDateFormat dateFormato = new SimpleDateFormat("yyyy-MM-dd");
+		    java.util.Date fechaUtil = dateFormato.parse(fechaTexto);
+		    
+		    // Convertir la fecha de util a sql
+		    java.sql.Date fechaSql = new java.sql.Date(fechaUtil.getTime());
+		    
+		    // Asignar la fecha convertida al atributo de la vista
+		    this.date = fechaSql;
+		} catch (ParseException e) {
+		    e.printStackTrace();
+		}
+		
+		
+		
+	
+		
+		
+		
 	}
 }
