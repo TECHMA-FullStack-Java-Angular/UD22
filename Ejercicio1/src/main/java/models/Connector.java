@@ -40,10 +40,10 @@ public class Connector {
 	// Create database
 	public void createDB(String dbName) {
 		try {
-			String kuery = " CREATE DATABASE IF NOT EXISTS " + dbName + " ;";
+			String query = " CREATE DATABASE IF NOT EXISTS " + dbName + " ;";
 			Statement st = conexion.createStatement();
-			System.out.println(kuery);
-			st.executeUpdate(kuery);
+			System.out.println(query);
+			st.executeUpdate(query);
 			System.out.println("Se ha creado la base de datos " + dbName + " correctamente");
 		} catch (SQLException ex) {
 			Logger.getLogger(Connector.class.getName()).log(Level.SEVERE, null, ex);
@@ -59,6 +59,7 @@ public class Connector {
 
 			String query = "CREATE TABLE IF NOT EXISTS " + nombreTabla + " (" + tablaColum + ");";
 			Statement st = conexion.createStatement();
+			System.out.println(query);
 			st.executeUpdate(query);
 
 			System.out.println("Se ha creado la tabla " + nombreTabla + " correctamente");
@@ -77,6 +78,7 @@ public class Connector {
 
 			String query = "INSERT INTO " + tableName + " (" + columns + ") VALUES (" + values + ");";
 			Statement st = conexion.createStatement();
+			System.out.println(query);
 			st.executeUpdate(query);
 
 			System.out.println("Datos insertados correctamente en la tabla " + tableName);
@@ -95,6 +97,7 @@ public class Connector {
 
 	        String query = "SELECT * FROM " + table_name;
 	        Statement st = conexion.createStatement();
+			System.out.println(query);
 	        return st.executeQuery(query);
 
 	    } catch (SQLException ex) {
@@ -109,6 +112,7 @@ public class Connector {
 		try {
 			String query = "DELETE FROM " + table_name_columna + " WHERE " + columna + "= \"" + campo + "\"";
 			Statement st = conexion.createStatement();
+			System.out.println(query);
 			st.executeUpdate(query);
 
 		} catch (SQLException ex) {
