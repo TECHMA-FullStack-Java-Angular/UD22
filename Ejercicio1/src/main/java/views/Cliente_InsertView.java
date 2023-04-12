@@ -80,6 +80,7 @@ public class Cliente_InsertView extends JFrame {
 		contentPane.add(dni);
 		
 		fecha = new JTextField();
+		//creamos una fecha actual por defecto
 		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		fecha.setText(LocalDate.now().format(dateFormat));
 		fecha.setColumns(10);

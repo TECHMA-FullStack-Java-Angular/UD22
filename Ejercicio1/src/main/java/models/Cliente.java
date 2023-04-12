@@ -26,14 +26,12 @@ public class Cliente {
 	private static final String TBNAME = "clientes";
 	
 	// Constructor	
-<<<<<<< HEAD
-	public Cliente(int id, String nombre, String apellido, String direccion, int dni, Date fecha) {
-=======
+
 	public Cliente() {	
 	}
 	
-	public Cliente(int id, String nombre, String apellido, String direccion, int dni, String fecha) {
->>>>>>> 0dfe5ccb6cb027ce1d62b135ceb21a8496cfc306
+    public Cliente(int id, String nombre, String apellido, String direccion, int dni, Date fecha) {
+
 		this.id = id;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -139,11 +137,11 @@ public class Cliente {
 		this.dni = dni;
 	}
 
-	public String getFecha() {
+	public Date getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(String fecha) {
+	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
 	
