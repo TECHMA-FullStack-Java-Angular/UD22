@@ -14,9 +14,9 @@ import javax.swing.JOptionPane;
 public class Connector {
 
 	private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
-	private static final String URL = "jdbc:mysql://192.168.4.105:3306";
-	private static final String USER = "remote";
-	private static final String PASSWORD = "P@ssw0rd_Remote";
+	private static final String URL = Credenciales.URL;
+	private static final String USER = Credenciales.USER;
+	private static final String PASSWORD = Credenciales.PASSWORD;
 
 	private static Connection conexion = null;
 
