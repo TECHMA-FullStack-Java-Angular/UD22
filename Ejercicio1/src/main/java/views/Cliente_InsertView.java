@@ -95,7 +95,7 @@ public class Cliente_InsertView extends JFrame {
 		lblNewLabel.setBounds(124, 22, 138, 20);
 		contentPane.add(lblNewLabel);
 		
-		DateFormat fechaFormat = new SimpleDateFormat("yyyy-MM-dd");
+		
 		// Obtener el texto del campo de fecha
 		String fechaTexto = fecha.getText();
 		try {
