@@ -44,7 +44,6 @@ public class Cliente_InsertController implements ActionListener {
 	public void initVista() {
 		
 		insert.setTitle("Nuevo cliente");
-		insert.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		insert.setBounds(300, 300, 354, 351);
 		insert.setLocationRelativeTo(null);
 		insert.setVisible(true);

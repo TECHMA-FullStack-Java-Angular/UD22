@@ -26,7 +26,14 @@ public class Cliente {
 	private static final String TBNAME = "clientes";
 	
 	// Constructor	
+<<<<<<< HEAD
 	public Cliente(int id, String nombre, String apellido, String direccion, int dni, Date fecha) {
+=======
+	public Cliente() {	
+	}
+	
+	public Cliente(int id, String nombre, String apellido, String direccion, int dni, String fecha) {
+>>>>>>> 0dfe5ccb6cb027ce1d62b135ceb21a8496cfc306
 		this.id = id;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -71,7 +78,8 @@ public class Cliente {
 	/*
 	 * This method select data.
 	 */
-	public List<Cliente> select(ResultSet resultSet) {
+	public List<Cliente> select() {
+		ResultSet resultSet = CONNEXION.select(DBNAME,TBNAME);
 	    List<Cliente> clientes = new ArrayList<>();
 	    try {
 	        while (resultSet.next()) {
@@ -90,4 +98,54 @@ public class Cliente {
 	    }
 	    return clientes;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public int getDni() {
+		return dni;
+	}
+
+	public void setDni(int dni) {
+		this.dni = dni;
+	}
+
+	public String getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
+	}
+	
+	
 }
