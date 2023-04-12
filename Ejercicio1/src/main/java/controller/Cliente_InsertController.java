@@ -32,7 +32,7 @@ public class Cliente_InsertController implements ActionListener {
 		int dni = Integer.parseInt(insert.dni.getText());
 		String fecha = insert.fecha.getText();
 		
-		cliente = new Cliente(nombre, apellidos, direccion, dni, fecha);
+		cliente = new Cliente(0, nombre, apellidos, direccion, dni, fecha);
 		cliente.insert();
 		
 		JOptionPane.showMessageDialog(insert, "Cliente creado correctamente.");

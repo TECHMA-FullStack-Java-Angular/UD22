@@ -87,32 +87,21 @@ public class Connector {
 	}
 
 	// Select
-	public void select(String db, String table_name, String columnas) {
-		String[] columna = columnas.split(",");
+	public ResultSet select(String db, String table_name) {
+	    try {
+	        String queryDb = "USE " + db + ";";
+	        Statement stdb = conexion.createStatement();
+	        stdb.executeUpdate(queryDb);
 
-		try {
-			String queryDb = "USE " + db + ";";
-			Statement stdb = conexion.createStatement();
-			stdb.executeUpdate(queryDb);
+	        String query = "SELECT * FROM " + table_name;
+	        Statement st = conexion.createStatement();
+	        return st.executeQuery(query);
 
-			String query = "SELECT * FROM " + table_name;
-			Statement st = conexion.createStatement();
-			java.sql.ResultSet resultSet;
-			resultSet = st.executeQuery(query);
-
-			System.out.println("Has creado la tabla " + table_name + " con los siguientes valores:");
-			while (resultSet.next()) {
-
-				for (String valor : columna) {
-					System.out.println(resultSet.getString(valor.trim()));
-				}
-
-			}
-
-		} catch (SQLException ex) {
-			System.out.println(ex.getMessage());
-			System.out.println("Error en la adquisicion de datos");
-		}
+	    } catch (SQLException ex) {
+	        System.out.println(ex.getMessage());
+	        System.out.println("Error en la adquisicion de datos");
+	        return null;
+	    }
 	}
 
 	// Delete
