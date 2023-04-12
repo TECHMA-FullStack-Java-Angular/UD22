@@ -16,9 +16,10 @@ import javax.swing.*;
 
 /**
  * @author Javier
+ * @param <JDateChooser>
  *
  */
-public class Cliente_InsertView extends JFrame {
+public class Cliente_InsertView<JDateChooser> extends JFrame {
 	
 	private JPanel contentPane;
 	public JTextField nombre;
@@ -95,23 +96,9 @@ public class Cliente_InsertView extends JFrame {
 		lblNewLabel.setBounds(124, 22, 138, 20);
 		contentPane.add(lblNewLabel);
 		
-		
-		// Obtener el texto del campo de fecha
-		String fechaTexto = fecha.getText();
-		try {
-		    // Analizar el texto de la fecha en un objeto Date
-		    SimpleDateFormat dateFormato = new SimpleDateFormat("yyyy-MM-dd");
-		    java.util.Date fechaUtil = dateFormato.parse(fechaTexto);
-		    
-		    // Convertir la fecha de util a sql
-		    java.sql.Date fechaSql = new java.sql.Date(fechaUtil.getTime());
-		    
-		    // Asignar la fecha convertida al atributo de la vista
-		    this.date = fechaSql;
-		} catch (ParseException e) {
-		    e.printStackTrace();
-		}
-		
+
+      		
+	
 		
 		
 	
