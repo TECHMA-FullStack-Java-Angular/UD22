@@ -2,7 +2,6 @@ package app1Main;
 
 import javax.swing.*;
 import controller.*;
-import views.Cliente_InsertView;
 import views.Cliente_ListView;
 
 /**

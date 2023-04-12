@@ -12,7 +12,7 @@ import javax.swing.*;
 public class Cliente_ListView extends JFrame{
 
 	private JPanel contentPane;
-	private JTable table;
+	public JTable table;
 	public JButton add;
 	
 	public Cliente_ListView() {
