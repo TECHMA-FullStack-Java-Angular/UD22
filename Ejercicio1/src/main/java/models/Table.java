@@ -26,5 +26,12 @@ public class Table {
         }
 		Connector.createTable(DBNAME, name, String.join(", ", attributeStrings));
 	}
+
+    /*public void insert(String[]) {
+        Connector.insert(DBNAME, name, 
+				"nombre, apellido, direccion, dni, fecha",
+                );
+	
+    }*/
 	
 }

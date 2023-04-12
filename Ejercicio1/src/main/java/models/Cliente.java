@@ -21,7 +21,6 @@ public class Cliente {
 	private int dni;
 	private Date fecha;
 	
-	private static final Connector CONNEXION = new Connector();
 	private static final String DBNAME = "servicios";
 	private static final String TBNAME = "clientes";
 	
@@ -48,14 +47,14 @@ public class Cliente {
 	 * This method create de database if exists.
 	 */
 	public void createDatabase() {
-		CONNEXION.createDB(DBNAME);
+		Connector.createDB(DBNAME);
 	}
 	
 	/**
 	 * This method create table "clientes".
 	 */
 	public void createTable() {
-		CONNEXION.createTable(DBNAME, TBNAME, 
+		Connector.createTable(DBNAME, TBNAME, 
 				  "id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,"
 				+ "nombre VARCHAR(250) NOT NULL,"
 				+ "apellido VARCHAR(250) NOT NULL,"
@@ -68,7 +67,7 @@ public class Cliente {
 	 * This method insert data into database.
 	 */
 	public void insert() {
-		CONNEXION.insert(DBNAME, TBNAME, 
+		Connector.insert(DBNAME, TBNAME, 
 				"nombre, apellido, direccion, dni, fecha", 
 				"'" + this.nombre + "', '" + this.apellido + "', '" + this.direccion + "', " + this.dni + ", '" + this.fecha + "'");
 	}
@@ -77,7 +76,7 @@ public class Cliente {
 	 * This method select data.
 	 */
 	public List<Cliente> select() {
-		ResultSet resultSet = CONNEXION.select(DBNAME,TBNAME);
+		ResultSet resultSet = Connector.select(DBNAME,TBNAME);
 	    List<Cliente> clientes = new ArrayList<>();
 	    try {
 	        while (resultSet.next()) {
