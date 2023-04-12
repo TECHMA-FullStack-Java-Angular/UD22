@@ -37,10 +37,10 @@ public class Connector {
 	// Create database
 	public static void createDB(String dbName) {
 		try {
-			String kuery = " CREATE DATABASE IF NOT EXISTS " + dbName + " ;";
+			String query = " CREATE DATABASE IF NOT EXISTS " + dbName + " ;";
 			Statement st = conexion.createStatement();
-			System.out.println(kuery);
-			st.executeUpdate(kuery);
+			System.out.println(query);
+			st.executeUpdate(query);
 			System.out.println("Se ha creado la base de datos " + dbName + " correctamente");
 		} catch (SQLException ex) {
 			Logger.getLogger(Connector.class.getName()).log(Level.SEVERE, null, ex);
@@ -94,6 +94,7 @@ public class Connector {
 	        stdb.executeUpdate(queryDb);
 
 	        String query = "SELECT * FROM " + table_name;
+			System.out.println(query);
 	        Statement st = conexion.createStatement();
 	        return st.executeQuery(query);
 
@@ -107,7 +108,8 @@ public class Connector {
 	// Delete 
 	public static void delete(String table_name_columna, String columna, String campo) {
 		try {
-			String query = "DELETE FROM " + table_name_columna + " WHERE " + columna + "= \"" + campo + "\"";
+			String query = "DELETE FROM " + table_name_columna + " WHERE " + columna + " = " + campo;
+			System.out.println(query);
 			Statement st = conexion.createStatement();
 			st.executeUpdate(query);
 

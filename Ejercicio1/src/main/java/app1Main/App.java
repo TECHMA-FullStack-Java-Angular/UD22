@@ -2,6 +2,7 @@ package app1Main;
 
 import javax.swing.*;
 import controller.*;
+import models.DataBase;
 import views.Cliente_InsertView;
 import views.Cliente_ListView;
 
@@ -24,6 +25,7 @@ public class App {
     	catch (IllegalAccessException e) {	
     	}
     	
+		DataBase.init();
     	Cliente_InsertView insertView = new Cliente_InsertView();
     	Cliente_InsertController controllerInsert = new Cliente_InsertController(insertView);
     	controllerInsert.initVista();

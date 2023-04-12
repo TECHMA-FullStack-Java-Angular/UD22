@@ -46,13 +46,14 @@ public class Cliente_InsertController implements ActionListener {
 		try {
 		    LocalDate fechaLocal = LocalDate.parse(fechaTexto, formatoFecha); // Analizar el texto de la fecha y crear un objeto LocalDate a partir de ella
 		    java.sql.Date fecha = java.sql.Date.valueOf(fechaLocal); // Convertir el objeto LocalDate a un objeto java.sql.Date
-		    cliente = new Cliente(0, nombre, apellidos, direccion, dni, fecha);
+			DataBase.cliente.insert(
+				new String[]{"Nombre", "Apellido", "Direccion", "DNI", "Fecha"}, 
+                new String[]{nombre,apellidos,direccion,Integer.toString(dni),fecha.toString()}
+			);
 		} catch (DateTimeParseException ex) {
 		    ex.printStackTrace();
 		}
 		
-		
-		cliente.insert();
 		
 		JOptionPane.showMessageDialog(insert, "Cliente creado correctamente.");
         insert.dispose();

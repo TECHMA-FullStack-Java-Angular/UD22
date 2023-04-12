@@ -1,9 +1,12 @@
 package models;
 
+/**
+ * @author Joan
+ */
 public class DataBase {
 
     public static Table cliente;
-    public static String DBNAME = "proves_joan"; 
+    public static String DBNAME = "services"; 
 
     public static void init() {
         Attribute[] attributes = {
@@ -14,7 +17,7 @@ public class DataBase {
             new Attribute("DNI",       "VARCHAR(250)", "DEFAULT NULL"),
             new Attribute("Fecha",     "DATE", "DEFAULT NULL"),
         };
-        cliente = new Table("clientes", attributes, DBNAME);
+        cliente = new Table("clientes", attributes, new int[]{0}, DBNAME);
 
         Connector.openConnection();
         Connector.createDB(DBNAME);
@@ -25,7 +28,8 @@ public class DataBase {
     public static void main(String[] args) {
         init();
         cliente.insert(new String[]{"Nombre", "Apellido", "Direccion"}, 
-                       new String[]{"joan","lapeyra","manila"});
+                       new String[]{"anna","lapeyra","manila"});
+        cliente.select();
     }
 
 
