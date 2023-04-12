@@ -3,6 +3,7 @@ package app1Main;
 import javax.swing.*;
 import controller.*;
 import views.Cliente_InsertView;
+import views.Cliente_ListView;
 
 /**
  * @author Javier
@@ -23,8 +24,8 @@ public class App {
     	catch (IllegalAccessException e) {	
     	}
     	
-    	Cliente_InsertView insertView = new Cliente_InsertView();
-    	Cliente_InsertController controller = new Cliente_InsertController(insertView);
+    	Cliente_ListView listView = new Cliente_ListView();
+    	Cliente_ListController controller = new Cliente_ListController(listView);
     	controller.initVista();
     }
 }
