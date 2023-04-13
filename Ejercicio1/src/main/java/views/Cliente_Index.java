@@ -18,21 +18,7 @@ public class Cliente_Index extends JFrame {
 	public JButton verCliente;
 	public JButton eliminarCliente;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Cliente_Index frame = new Cliente_Index();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the frame.

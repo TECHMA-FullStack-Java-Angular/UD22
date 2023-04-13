@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import models.Cliente;
+import views.Cliente_Delete;
 import views.Cliente_Index;
 import views.Cliente_InsertView;
 import views.Cliente_ListView;
@@ -53,6 +54,10 @@ public class Cliente_IndexController implements ActionListener{
 		        Cliente_ListView listView = new Cliente_ListView();
 		        Cliente_ListController listController = new Cliente_ListController(listView);
 		        listController.initVista();
+		    }else if(e.getSource()==indice.eliminarCliente) {
+		    	Cliente_Delete deleteCliente = new Cliente_Delete();
+		    	Cliente_DeleteController deleteController = new Cliente_DeleteController(deleteCliente);
+		    	deleteController.initVista();
 		    }
 	
 		

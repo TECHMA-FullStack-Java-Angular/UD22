@@ -10,12 +10,7 @@ import views.Cliente_ListView;
  * @author Javier
  *
  */
-<<<<<<< HEAD
-public class App 
-{
-    public static void main( String[] args )
-    {}
-=======
+
 public class App {
     public static void main( String[] args ) {
     	
@@ -40,5 +35,6 @@ public class App {
     	Cliente_Index insertIndex = new Cliente_Index();
 		Cliente_IndexController controller = new Cliente_IndexController(insertIndex);
 		controller.initVista();	
->>>>>>> cada524a756184d540de388e24ba951d93d3a67c
+
     }
+}
