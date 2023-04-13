@@ -3,26 +3,18 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import models.Cliente;
-import views.Cliente_Index;
-import views.Cliente_InsertView;
-import views.Cliente_ListView;
+import views.IndexView;
 
-public class Cliente_IndexController implements ActionListener{
+public class IndexController implements ActionListener{
 
-	private Cliente cliente;
-	private Cliente_Index indice;
-	private Cliente_InsertView insertView;
+	private IndexView indice;
 
 	
 	
-	public Cliente_IndexController(Cliente_Index indice) {
-		this.cliente = new Cliente();
+	public IndexController(IndexView indice) {
 		this.indice = indice;
 		this.indice.nuevoCliente.addActionListener(this);
 		this.indice.editarCliente.addActionListener(this);
@@ -36,29 +28,20 @@ public class Cliente_IndexController implements ActionListener{
 		
 		indice.contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		indice.setVisible(true);
-		
-		
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		   if (e.getSource() == indice.nuevoCliente) {
 		        // Crear y mostrar la vista de inserción de cliente
-			   Cliente_InsertView insertView = new Cliente_InsertView();
-		        Cliente_InsertController insertController = new Cliente_InsertController(insertView);
-		        insertController.initVista();
+		        //EditCliente_Controller insertController = new EditCliente_Controller();
+		        //insertController.initVista();
 		    
 		    } else if (e.getSource() == indice.verCliente) {
 		        // Crear y mostrar la vista de visualización de clientes
-		        Cliente_ListView listView = new Cliente_ListView();
-		        Cliente_ListController listController = new Cliente_ListController(listView);
+		        ListController listController = new ListController();
 		        listController.initVista();
 		    }
-	
-		
-		
-	
-		
 	}
 
 }

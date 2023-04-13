@@ -41,7 +41,7 @@ public class Connector {
 			Statement st = conexion.createStatement();
 			System.out.println(query);
 			st.executeUpdate(query);
-			System.out.println("Se ha creado la base de datos " + dbName + " correctamente");
+			System.out.println("\tSe ha creado la base de datos " + dbName + " correctamente");
 		} catch (SQLException ex) {
 			Logger.getLogger(Connector.class.getName()).log(Level.SEVERE, null, ex);
 		}
@@ -55,12 +55,11 @@ public class Connector {
 			stdb.executeUpdate(queryDb);
 
 			String query = "CREATE TABLE IF NOT EXISTS " + nombreTabla + " (" + tablaColum + ");";
-			System.out.println(query);
 			Statement st = conexion.createStatement();
 			System.out.println(query);
 			st.executeUpdate(query);
 
-			System.out.println("Se ha creado la tabla " + nombreTabla + " correctamente");
+			System.out.println("\tSe ha creado la tabla " + nombreTabla + " correctamente");
 		} catch (SQLException ex) {
 			Logger.getLogger(Connector.class.getName()).log(Level.SEVERE, null, ex);
 			JOptionPane.showMessageDialog(null, "Error creando la tabla " + nombreTabla);
@@ -75,16 +74,15 @@ public class Connector {
 			stdb.executeUpdate(queryDb);
 
 			String query = "INSERT INTO " + tableName + " (" + columns + ") VALUES (" + values + ");";
-			System.out.println(query);
 			Statement st = conexion.createStatement();
 			System.out.println(query);
 			st.executeUpdate(query);
 
-			System.out.println("Datos insertados correctamente en la tabla " + tableName);
+			System.out.println("\tDatos insertados correctamente en la tabla " + tableName);
 		} catch (SQLException ex) {
-			Logger.getLogger(Connector.class.getName()).log(Level.SEVERE, null, ex);
-			JOptionPane.showMessageDialog(null, 
-				"Error insertando datos en la tabla " + tableName + ": "+ex.getMessage());
+			//Logger.getLogger(Connector.class.getName()).log(Level.SEVERE, null, ex);
+			System.out.println(ex.getMessage());
+			JOptionPane.showMessageDialog(null, "Error insertando datos en la tabla");
 		}
 	}
 
@@ -96,23 +94,44 @@ public class Connector {
 	        stdb.executeUpdate(queryDb);
 
 	        String query = "SELECT * FROM " + table_name;
-			System.out.println(query);
 	        Statement st = conexion.createStatement();
 			System.out.println(query);
 	        return st.executeQuery(query);
 
 	    } catch (SQLException ex) {
 	        System.out.println(ex.getMessage());
-	        System.out.println("Error en la adquisicion de datos");
+	        JOptionPane.showMessageDialog(null, "Error en la adquisicion de datos");
 	        return null;
 	    }
 	}
 
 	// Delete 
-	public static void delete(String table_name_columna, String columna, String campo) {
+	public static void delete(String db, String table_name, String column, String value) {
 		try {
-			String query = "DELETE FROM " + table_name_columna + " WHERE " + columna + " = " + campo;
+			String queryDb = "USE " + db + ";";
+	        Statement stdb = conexion.createStatement();
+	        stdb.executeUpdate(queryDb);
+
+			String query = "DELETE FROM " + table_name + " WHERE " + column + " = " + value;
+			Statement st = conexion.createStatement();
 			System.out.println(query);
+			st.executeUpdate(query);
+
+		} catch (SQLException ex) {
+			System.out.println(ex.getMessage());
+			JOptionPane.showMessageDialog(null, "Error borrando el registro especificado");
+		}
+	}
+
+	// Delete 
+	public static void update(String db, String table_name, String column, String value, String changes) {
+		try {
+			String queryDb = "USE " + db + ";";
+	        Statement stdb = conexion.createStatement();
+	        stdb.executeUpdate(queryDb);
+
+			String query = "UPDATE " + table_name + " SET " + changes
+				+ " WHERE " + column + " = " + value + " ";
 			Statement st = conexion.createStatement();
 			System.out.println(query);
 			st.executeUpdate(query);
