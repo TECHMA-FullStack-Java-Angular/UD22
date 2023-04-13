@@ -17,7 +17,7 @@ public class DataBase {
             new Attribute("DNI",       "VARCHAR(250)", "DEFAULT NULL"),
             new Attribute("Fecha",     "DATE", "DEFAULT NULL"),
         };
-        cliente = new Table("clientes", attributes, new int[]{0}, DBNAME);
+        cliente = new Table("clientes", attributes, DBNAME);
 
         Connector.openConnection();
         Connector.createDB(DBNAME);

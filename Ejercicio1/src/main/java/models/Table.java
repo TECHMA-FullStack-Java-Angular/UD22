@@ -13,13 +13,11 @@ import java.util.List;
 public class Table {
     public String name;
     public Attribute[] attributes;
-    public int[] primary_key; //indexs de attributes que son la primary key
     public final String DBNAME;
 
-    public Table(String name, Attribute[] attributes, int[] primary_key, String dbname) {
+    public Table(String name, Attribute[] attributes, String dbname) {
         this.name = name;
         this.attributes = attributes;
-        this.primary_key = primary_key;
         this.DBNAME = dbname;
     }
 

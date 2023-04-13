@@ -9,7 +9,6 @@ import java.time.format.DateTimeFormatter;
 
 import javax.swing.*;
 
-import javafx.scene.chart.PieChart.Data;
 import models.*;
 import views.*;
 
@@ -30,7 +29,7 @@ public class EditCliente_Controller implements ActionListener {
 		this.listController = listController;
 		initVista();
 		view.setTitle("Nuevo cliente");
-		view.labelTitle.setText("NUEVO CLIENTE");
+		view.tituloVentana.setText("NUEVO CLIENTE");
 		view.button.setText("Añadir");
 	}
 
@@ -40,7 +39,7 @@ public class EditCliente_Controller implements ActionListener {
 		this.elementToUpdate = elementToUpdate;
 		initVista();
 		view.setTitle("Modificar cliente");
-		view.labelTitle.setText("MODIFICAR CLIENTE");
+		view.tituloVentana.setText("MODIFICAR CLIENTE");
 		view.button.setText("Modificar");
 
 		view.nombre.setText(elementToUpdate[1]);

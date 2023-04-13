@@ -22,7 +22,7 @@ public class EditCliente_View extends JFrame {
 	public JTextField dni;
 	public JTextField fecha;
 	public JButton button;
-	public JLabel labelTitle;
+	public JLabel tituloVentana;
 	
 	public EditCliente_View() {
 		initComponents();
@@ -86,9 +86,9 @@ public class EditCliente_View extends JFrame {
 		button.setBounds(219, 250, 89, 23);
 		contentPane.add(button);
 		
-		labelTitle = new JLabel();
-		labelTitle.setBounds(124, 22, 138, 20);
-		contentPane.add(labelTitle);
+		tituloVentana = new JLabel();
+		tituloVentana.setBounds(124, 22, 138, 20);
+		contentPane.add(tituloVentana);
 		
 		
 	}
