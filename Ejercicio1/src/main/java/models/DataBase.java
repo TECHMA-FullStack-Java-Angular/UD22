@@ -6,7 +6,7 @@ package models;
 public class DataBase {
 
     public static Table cliente;
-    public static String DBNAME = "services"; 
+    public static String DBNAME = "servicios"; 
 
     public static void init() {
         Attribute[] attributes = {
