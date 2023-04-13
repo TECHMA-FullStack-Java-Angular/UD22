@@ -2,6 +2,7 @@ package app1Main;
 
 import javax.swing.*;
 import controller.*;
+import views.Cliente_Index;
 import models.DataBase;
 import views.Cliente_InsertView;
 import views.Cliente_ListView;
@@ -25,12 +26,14 @@ public class App {
     	catch (IllegalAccessException e) {	
     	}
     	
-		DataBase.init();
-    	Cliente_InsertView insertView = new Cliente_InsertView();
-    	Cliente_InsertController controllerInsert = new Cliente_InsertController(insertView);
-    	controllerInsert.initVista();
-    	Cliente_ListView listView = new Cliente_ListView();
-    	Cliente_ListController controller = new Cliente_ListController(listView);
-    	controller.initVista();
+//    	Cliente_InsertView insertView = new Cliente_InsertView();
+//    	Cliente_InsertController controllerInsert = new Cliente_InsertController(insertView);
+//    	controllerInsert.initVista();
+//    	Cliente_ListView listView = new Cliente_ListView();
+//    	Cliente_ListController controller = new Cliente_ListController(listView);
+//    	controller.initVista();
+    	Cliente_Index insertIndex = new Cliente_Index();
+		Cliente_IndexController controller = new Cliente_IndexController(insertIndex);
+		controller.initVista();	
     }
 }
