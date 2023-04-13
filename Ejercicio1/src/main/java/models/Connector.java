@@ -1,12 +1,7 @@
 package models;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
+import java.sql.*;
+import java.util.logging.*;
 import javax.swing.JOptionPane;
 
 
@@ -20,7 +15,7 @@ public class Connector {
 
 	private static Connection conexion = null;
 
-	//CREAR CONEXIÓN
+	// Create connection
 	public Connector() {
 		try {
 			Class.forName(DRIVER);
@@ -32,10 +27,7 @@ public class Connector {
 		}
 	}
 	
-	public static Connection getConexion() {
-		return conexion;
-	}
-	
+	// Close connection
 	public void closeConnection() {
 		try {
 			conexion.close();
@@ -45,22 +37,20 @@ public class Connector {
 		}
 	}
 
+	// Create database
 	public void createDB(String dbName) {
-
 		try {
-			String kuery = " CREATE DATABASE IF NOT EXISTS " + dbName + " ;";
+			String query = " CREATE DATABASE IF NOT EXISTS " + dbName + " ;";
 			Statement st = conexion.createStatement();
-			System.out.println(kuery);
-			st.executeUpdate(kuery);
+			System.out.println(query);
+			st.executeUpdate(query);
 			System.out.println("Se ha creado la base de datos " + dbName + " correctamente");
 		} catch (SQLException ex) {
 			Logger.getLogger(Connector.class.getName()).log(Level.SEVERE, null, ex);
 		}
 	}
 
-
-
-	// Método para crear una tabla en una base de datos
+	// Create table
 	public void createTable(String nombreBBDD, String nombreTabla, String tablaColum) {
 		try {
 			String queryDb = "USE " + nombreBBDD + ";";
@@ -69,6 +59,7 @@ public class Connector {
 
 			String query = "CREATE TABLE IF NOT EXISTS " + nombreTabla + " (" + tablaColum + ");";
 			Statement st = conexion.createStatement();
+			System.out.println(query);
 			st.executeUpdate(query);
 
 			System.out.println("Se ha creado la tabla " + nombreTabla + " correctamente");
@@ -78,7 +69,7 @@ public class Connector {
 		}
 	}
 
-	// Método para insertar datos en una tabla
+	// Insert table
 	public void insert(String dbName, String tableName, String columns, String values) {
 		try {
 			String queryDb = "USE " + dbName + ";";
@@ -87,6 +78,7 @@ public class Connector {
 
 			String query = "INSERT INTO " + tableName + " (" + columns + ") VALUES (" + values + ");";
 			Statement st = conexion.createStatement();
+			System.out.println(query);
 			st.executeUpdate(query);
 
 			System.out.println("Datos insertados correctamente en la tabla " + tableName);
@@ -96,40 +88,31 @@ public class Connector {
 		}
 	}
 
-	// METODO QUE OBTIENE VALORES MYSQL
-	public void select(String db, String table_name, String columnas) {
-		String[] columna = columnas.split(",");
+	// Select
+	public ResultSet select(String db, String table_name) {
+	    try {
+	        String queryDb = "USE " + db + ";";
+	        Statement stdb = conexion.createStatement();
+	        stdb.executeUpdate(queryDb);
 
-		try {
-			String queryDb = "USE " + db + ";";
-			Statement stdb = conexion.createStatement();
-			stdb.executeUpdate(queryDb);
+	        String query = "SELECT * FROM " + table_name;
+	        Statement st = conexion.createStatement();
+			System.out.println(query);
+	        return st.executeQuery(query);
 
-			String query = "SELECT * FROM " + table_name;
-			Statement st = conexion.createStatement();
-			java.sql.ResultSet resultSet;
-			resultSet = st.executeQuery(query);
-
-			System.out.println("Has creado la tabla " + table_name + " con los siguientes valores:");
-			while (resultSet.next()) {
-
-				for (String valor : columna) {
-					System.out.println(resultSet.getString(valor.trim()));
-				}
-
-			}
-
-		} catch (SQLException ex) {
-			System.out.println(ex.getMessage());
-			System.out.println("Error en la adquisicion de datos");
-		}
+	    } catch (SQLException ex) {
+	        System.out.println(ex.getMessage());
+	        System.out.println("Error en la adquisicion de datos");
+	        return null;
+	    }
 	}
 
-	// METODO QUE ELIMINA VALORES DE NUESTRA BASE DE DATOS
+	// Delete
 	public void delete(String table_name_columna, String columna, String campo) {
 		try {
 			String query = "DELETE FROM " + table_name_columna + " WHERE " + columna + "= \"" + campo + "\"";
 			Statement st = conexion.createStatement();
+			System.out.println(query);
 			st.executeUpdate(query);
 
 		} catch (SQLException ex) {

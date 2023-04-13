@@ -4,5 +4,9 @@
 	<classpathentry kind="src" path="Ejercicio1/src/main/java"/>
 	<classpathentry kind="src" path="Ejercicio1/src/test/java"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3"/>
+	<classpathentry kind="lib" path="C:/Users/paula/Downloads/jcalendar-1.4/lib/jgoodies-common-1.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/paula/Downloads/jcalendar-1.4/lib/jgoodies-looks-2.4.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/paula/Downloads/jcalendar-1.4/lib/junit-4.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/paula/Downloads/jcalendar-1.4/lib/jcalendar-1.4.jar"/>
 	<classpathentry kind="output" path="Ejercicio1/target/classes"/>
 </classpath>
