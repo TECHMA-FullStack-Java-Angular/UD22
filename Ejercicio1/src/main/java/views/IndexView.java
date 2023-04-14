@@ -4,13 +4,12 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 
-public class Cliente_Index extends JFrame {
+public class IndexView extends JFrame {
 
 	public JPanel contentPane;
 	public JButton nuevoCliente;
@@ -18,13 +17,27 @@ public class Cliente_Index extends JFrame {
 	public JButton verCliente;
 	public JButton eliminarCliente;
 
-
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					IndexView frame = new IndexView();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
 	/**
 	 * Create the frame.
 	 */
 	
-	public Cliente_Index() {
+	public IndexView() {
 		initComponents();
 	}
 	

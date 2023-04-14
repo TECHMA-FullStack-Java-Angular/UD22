@@ -24,6 +24,6 @@ public class App {
     	}
     	
 		DataBase.init();
-		new ListController();
+		new IndexController();
     }
 }

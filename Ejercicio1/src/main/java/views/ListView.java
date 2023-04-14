@@ -9,13 +9,15 @@ import javax.swing.*;
  * @author Javier
  *
  */
-public class Cliente_ListView extends JFrame{
+public class ListView extends JFrame{
 
 	private JPanel contentPane;
 	public JTable table;
-	public JButton add;
+	public JButton insert;
+	public JButton update;
+	public JButton delete;
 	
-	public Cliente_ListView() {
+	public ListView() {
 		initComponents();
 	}
 	
@@ -32,8 +34,16 @@ public class Cliente_ListView extends JFrame{
 		clientes.setBounds(188, 20, 49, 14);
 		contentPane.add(clientes);
 		
-		add = new JButton("Añadir");
-		add.setBounds(319, 227, 89, 23);
-		contentPane.add(add);
+		insert = new JButton("Añadir");
+		insert.setBounds(54, 227, 89, 23);
+		contentPane.add(insert);
+		
+	    update = new JButton("Modificar");
+		update.setBounds(165, 227, 89, 23);
+		contentPane.add(update);
+		
+		delete = new JButton("Eliminar");
+		delete.setBounds(283, 227, 89, 23);
+		contentPane.add(delete);
 	}
 }

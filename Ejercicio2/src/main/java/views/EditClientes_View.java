@@ -3,7 +3,6 @@
  */
 package views;
 
-import java.sql.Date;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -12,10 +11,9 @@ import javax.swing.*;
 
 /**
  * @author Javier
- * @param <JDateChooser>
- *
+ * insert or update
  */
-public class Cliente_InsertView<JDateChooser> extends JFrame {
+public class EditClientes_View extends JFrame {
 	
 	private JPanel contentPane;
 	public JTextField nombre;
@@ -23,10 +21,10 @@ public class Cliente_InsertView<JDateChooser> extends JFrame {
 	public JTextField direccion;
 	public JTextField dni;
 	public JTextField fecha;
-	public JButton crear;
-	public Date date;
+	public JButton button;
+	public JLabel tituloVentana;
 	
-	public Cliente_InsertView() {
+	public EditClientes_View() {
 		initComponents();
 	}
 	
@@ -84,21 +82,13 @@ public class Cliente_InsertView<JDateChooser> extends JFrame {
 		fecha.setBounds(107, 217, 201, 20);
 		contentPane.add(fecha);
 		
-		crear = new JButton("Crear");
-		crear.setBounds(219, 307, 89, 23);
-		contentPane.add(crear);
+		button = new JButton();
+		button.setBounds(219, 250, 89, 23);
+		contentPane.add(button);
 		
-		JLabel lblNewLabel = new JLabel("NUEVO CLIENTE");
-		lblNewLabel.setBounds(124, 22, 138, 20);
-		contentPane.add(lblNewLabel);
-		
-
-      		
-	
-		
-		
-	
-		
+		tituloVentana = new JLabel();
+		tituloVentana.setBounds(124, 22, 138, 20);
+		contentPane.add(tituloVentana);
 		
 		
 	}

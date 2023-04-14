@@ -8,5 +8,6 @@
 	<classpathentry kind="lib" path="C:/Users/paula/Downloads/jcalendar-1.4/lib/jgoodies-looks-2.4.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/paula/Downloads/jcalendar-1.4/lib/junit-4.6.jar"/>
 	<classpathentry kind="lib" path="C:/Users/paula/Downloads/jcalendar-1.4/lib/jcalendar-1.4.jar"/>
+	<classpathentry kind="src" path="Ejercicio2/src/main/java/app1Main"/>
 	<classpathentry kind="output" path="Ejercicio1/target/classes"/>
 </classpath>
