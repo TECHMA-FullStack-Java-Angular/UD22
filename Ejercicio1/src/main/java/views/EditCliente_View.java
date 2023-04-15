@@ -11,10 +11,15 @@ import javax.swing.*;
 
 /**
  * @author Javier
+ * @author Paula
  * insert or update
  */
 public class EditCliente_View extends JFrame {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	public JTextField nombre;
 	public JTextField apellidos;

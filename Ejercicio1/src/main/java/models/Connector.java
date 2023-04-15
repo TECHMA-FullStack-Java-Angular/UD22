@@ -4,7 +4,10 @@ import java.sql.*;
 import java.util.logging.*;
 import javax.swing.JOptionPane;
 
-
+/**
+ * @author Paula
+ *
+ */
 
 public class Connector {
 

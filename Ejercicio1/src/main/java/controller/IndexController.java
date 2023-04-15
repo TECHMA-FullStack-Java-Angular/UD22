@@ -8,6 +8,11 @@ import javax.swing.border.EmptyBorder;
 
 import views.IndexView;
 
+/**
+ * @author Paula
+ *
+ */
+
 public class IndexController implements ActionListener{
 
 	private IndexView indice;
