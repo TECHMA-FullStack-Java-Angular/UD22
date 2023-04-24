@@ -84,7 +84,7 @@ public class ListController implements ActionListener {
 		else if (e.getSource() == view.delete) {
 			String[] row_values = getRowValues();
 			if (row_values != null) {
-				if (0 == JOptionPane.showConfirmDialog(view, "¿Está seguro de que quiere eliminar este cliente?")) {
+				if (0 == JOptionPane.showConfirmDialog(view, "¿Está seguro de que quiere eliminar este registro?")) {
 					table.delete(row_values);
 					refreshList();
 				}
